@@ -1,0 +1,2 @@
+# BruhBot
+The BruhBot Repository 
