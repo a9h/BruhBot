@@ -10,8 +10,10 @@ client.remove_command("help")
 
 
 @client.event
-async def on_ready():
+async def on_ready(ctx):
     print('We have logged in as {0.user}'.format(client))
+    print("BruhBot Activated")
+    await ctx.send("BruhBot is active, type >>help for help!")
     await client.change_presence(status=discord.Status.online, activity=discord.Game(">>Help"))
 
 @client.command()
