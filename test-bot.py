@@ -51,7 +51,7 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
 
-
+print()
 
 @client.command()
 async def image(ctx):
