@@ -22,6 +22,29 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="BruhBot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\woody\AppData\Local\Programs\Python\Python39\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -32,5 +55,31 @@
       <updated>1611682855146</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="685" y="396" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613501025669">
+      <screen x="0" y="0" width="2560" height="1600" />
+    </state>
+    <state x="685" y="396" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1600/-3840.-157.2560.1440/-6400.23.2560.1600@0.0.2560.1600" timestamp="1613501025669" />
+    <state x="893" y="459" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1613612779049">
+      <screen x="0" y="0" width="2560" height="1600" />
+    </state>
+    <state x="893" y="459" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2560.1600/-3840.-157.2560.1440/-6400.23.2560.1600@0.0.2560.1600" timestamp="1613612779049" />
+    <state width="1963" height="279" key="GridCell.Tab.0.bottom" timestamp="1613509627121">
+      <screen x="0" y="0" width="2560" height="1600" />
+    </state>
+    <state width="1963" height="279" key="GridCell.Tab.0.bottom/0.0.2560.1600/-3840.-157.2560.1440/-6400.23.2560.1600@0.0.2560.1600" timestamp="1613509627121" />
+    <state width="1963" height="279" key="GridCell.Tab.0.center" timestamp="1613509627121">
+      <screen x="0" y="0" width="2560" height="1600" />
+    </state>
+    <state width="1963" height="279" key="GridCell.Tab.0.center/0.0.2560.1600/-3840.-157.2560.1440/-6400.23.2560.1600@0.0.2560.1600" timestamp="1613509627121" />
+    <state width="1963" height="279" key="GridCell.Tab.0.left" timestamp="1613509627121">
+      <screen x="0" y="0" width="2560" height="1600" />
+    </state>
+    <state width="1963" height="279" key="GridCell.Tab.0.left/0.0.2560.1600/-3840.-157.2560.1440/-6400.23.2560.1600@0.0.2560.1600" timestamp="1613509627121" />
+    <state width="1963" height="279" key="GridCell.Tab.0.right" timestamp="1613509627121">
+      <screen x="0" y="0" width="2560" height="1600" />
+    </state>
+    <state width="1963" height="279" key="GridCell.Tab.0.right/0.0.2560.1600/-3840.-157.2560.1440/-6400.23.2560.1600@0.0.2560.1600" timestamp="1613509627121" />
   </component>
 </project>

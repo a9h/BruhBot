@@ -4,6 +4,7 @@ import random
 
 
 
+
 client = commands.Bot(command_prefix=">>")
 client.remove_command("help")
 
@@ -94,13 +95,7 @@ async def _8ball(ctx, *, question):
     await ctx.send(f"```question: {question}\nAnswer: {random.choice(responces)}```")
 
 
-@client.command(name="cat")
-async def cat(context):
 
-    images = ["cat4.jpg", "cat3.jpg", "cat2.jpg", "cat1.png"]
-
-    random_image = random.choice(images)
-    await context.send(file=discord.File(random_image))
 
 
 
