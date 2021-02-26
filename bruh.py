@@ -37,7 +37,7 @@ async def ban(ctx, member: discord.Member, *, reason=None):
 @client.command()
 async def test(ctx):
     e = discord.Embed()
-    e.set_image(url="https://i.imgur.com/5nqpFiF.jpg")
+    e.set_image(url="p")
     await ctx.send(e=e)
 
 
@@ -115,4 +115,4 @@ async def ping(ctx):
 
 
 
-client.run('Nzk5MjY3NjE5MzY2NTAyNDcx.YABF-g.L3-KuENgE3F244QhOaTPMNP96UA')
+client.run('')
