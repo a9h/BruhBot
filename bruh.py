@@ -43,7 +43,7 @@ async def test(ctx):
 
 @client.command()
 async def help(ctx):
-    author = ctx.message.author
+
 
     embed = discord.Embed()
 
@@ -115,4 +115,6 @@ async def ping(ctx):
 
 
 
-client.run('')
+
+
+client.run()
