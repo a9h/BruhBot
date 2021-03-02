@@ -59,12 +59,11 @@ async def help(ctx):
 
 @client.command()
 async def image(ctx):
-    author = ctx.message.author
-
     embed = discord.Embed()
 
+    image = ["https://anthropocenemagazine.org/wp-content/uploads/2020/04/Panda-2.jpg", "http://getwallpapers.com/wallpaper/full/4/6/5/768307-free-download-panda-bear-background-2048x1365.jpg"]
 
-    embed.set_image(url="https://anthropocenemagazine.org/wp-content/uploads/2020/04/Panda-2.jpg")
+    embed.set_image(url=f"{random.choice(image)}")
     await ctx.send(embed=embed)
 
 
@@ -95,7 +94,13 @@ async def _8ball(ctx, *, question):
     await ctx.send(f"```question: {question}\nAnswer: {random.choice(responces)}```")
 
 
+@client.command(aliases=["McName"])
+async def _3letterword(ctx):
+    letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+               "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
+               "y", "z" "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
+    await ctx.send(f"```your 3 letter word is: {random.choice(letters)}{random.choice(letters)}{random.choice(letters)}```")
 
 
 
@@ -115,4 +120,4 @@ async def ping(ctx):
 
 
 
-client.run('')
+client.run('Nzk5MjY3NjE5MzY2NTAyNDcx.YABF-g.oEc10kG2Lgb0OKwZzSkUosZo0WY')
