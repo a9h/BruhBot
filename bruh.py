@@ -44,9 +44,9 @@ async def test(ctx):
 @client.command()
 async def help(ctx):
     embed = discord.Embed(title="BruhBot command list!", description="(Currency coming soon!)")
-    embed.add_field(name="Fun 😊", value="```>>help fun```", inline=True)
-    embed.add_field(name="Image 📷", value="```>>help image```", inline=True)
-    embed.add_field(name="Memey", value="`>>help memey`", inline=True)
+    embed.add_field(name="Fun 😊", value="`>>help fun`", inline=True)
+    embed.add_field(name="Image 📷", value="`>>help image`", inline=True)
+    embed.add_field(name="Memey 😂", value="`>>help memey`", inline=True)
     embed.add_field(name="Placeholder", value="Placeholder", inline=True)
     embed.add_field(name="Placeholder", value="Placeholder", inline=True)
     embed.add_field(name="Placeholder", value="Placeholder", inline=True)
