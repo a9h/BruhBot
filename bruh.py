@@ -43,17 +43,14 @@ async def test(ctx):
 
 @client.command()
 async def help(ctx):
-    author = ctx.message.author
-
-    embed = discord.Embed()
-
-    embed.add_field(name=">>help", value="Shows this list", inline=True)
-    embed.set_author(name="BRUHBOT help commands", icon_url="")
-    embed.add_field(name=">>ping", value="Returns pong with response time shown!", inline=True)
-    embed.add_field(name=">>kick", value="Kicks the selected person. Requires kick permissions", inline=True)
-    embed.add_field(name=">>ban", value="Bans the selected person.\nRequires ban permissions", inline=True)
+    embed = discord.Embed(title="BruhBot command list!", description="(Currency coming soon!)")
+    embed.add_field(name="Fun 😊", value="```>>help fun```", inline=True)
+    embed.add_field(name="Image 📷", value="```>>help image```", inline=True)
+    embed.add_field(name="Memey", value="`>>help memey`", inline=True)
+    embed.add_field(name="Placeholder", value="Placeholder", inline=True)
+    embed.add_field(name="Placeholder", value="Placeholder", inline=True)
+    embed.add_field(name="Placeholder", value="Placeholder", inline=True)
     await ctx.send(embed=embed)
-
 
 
 
@@ -94,7 +91,7 @@ async def _8ball(ctx, *, question):
     await ctx.send(f"```question: {question}\nAnswer: {random.choice(responces)}```")
 
 
-@client.command(aliases=["McName"])
+@client.command(aliases=["McName", "3Letter"])
 async def _3letterword(ctx):
     letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
                "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
