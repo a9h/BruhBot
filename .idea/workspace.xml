@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18ea61da-9d41-4921-b096-d2ff148b9758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bruh.py" beforeDir="false" afterPath="$PROJECT_DIR$/bruh.py" afterDir="false" />
-    </list>
+    <list default="true" id="18ea61da-9d41-4921-b096-d2ff148b9758" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,31 +85,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="685" y="396" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613501025669">
-      <screen x="0" y="0" width="2560" height="1600" />
-    </state>
-    <state x="685" y="396" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1600/-3840.-157.2560.1440/-6400.23.2560.1600@0.0.2560.1600" timestamp="1613501025669" />
-    <state x="893" y="459" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1613612779049">
-      <screen x="0" y="0" width="2560" height="1600" />
-    </state>
-    <state x="893" y="459" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2560.1600/-3840.-157.2560.1440/-6400.23.2560.1600@0.0.2560.1600" timestamp="1613612779049" />
-    <state width="1963" height="279" key="GridCell.Tab.0.bottom" timestamp="1613509627121">
-      <screen x="0" y="0" width="2560" height="1600" />
-    </state>
-    <state width="1963" height="279" key="GridCell.Tab.0.bottom/0.0.2560.1600/-3840.-157.2560.1440/-6400.23.2560.1600@0.0.2560.1600" timestamp="1613509627121" />
-    <state width="1963" height="279" key="GridCell.Tab.0.center" timestamp="1613509627121">
-      <screen x="0" y="0" width="2560" height="1600" />
-    </state>
-    <state width="1963" height="279" key="GridCell.Tab.0.center/0.0.2560.1600/-3840.-157.2560.1440/-6400.23.2560.1600@0.0.2560.1600" timestamp="1613509627121" />
-    <state width="1963" height="279" key="GridCell.Tab.0.left" timestamp="1613509627121">
-      <screen x="0" y="0" width="2560" height="1600" />
-    </state>
-    <state width="1963" height="279" key="GridCell.Tab.0.left/0.0.2560.1600/-3840.-157.2560.1440/-6400.23.2560.1600@0.0.2560.1600" timestamp="1613509627121" />
-    <state width="1963" height="279" key="GridCell.Tab.0.right" timestamp="1613509627121">
-      <screen x="0" y="0" width="2560" height="1600" />
-    </state>
-    <state width="1963" height="279" key="GridCell.Tab.0.right/0.0.2560.1600/-3840.-157.2560.1440/-6400.23.2560.1600@0.0.2560.1600" timestamp="1613509627121" />
   </component>
 </project>
