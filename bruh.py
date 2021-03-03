@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import random
-import os
+
 
 
 
@@ -17,18 +17,25 @@ async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.Game(">>Help"))
 
 @client.command()
-async def help_config(ctx, extention):
-    client.load extention(f"cogs.{extention}")
+async def mute(ctx,member: discord.Member, *, reason=None):
+    guild = ctx.guild
+    mutedrole = discord.utils.get(guild.roles, name="muted")
+
+    if not mutedrole:
+        mutedrole = await guild.create_role(name="muted")
+        for channel in guild.channels:
+            await channel.set_permissions(mutedrole, speak=False, send_messages=False, read_message_history=True, read_messages=True)
+    await member.add_roles(mutedrole, reason=reason)
+    await ctx.send (f"Muted {member.mention} for {reason}")
+    await member.send(f"You were muted in the server {guild.name} for {reason}")
 
 @client.command()
-async def help_config(ctx, extention):
-    client.unload_extension(f"cogs.{extention}")
-
-
-for filename in os.listdir("./")
-
-
-
+async def unmute(ctx,member: discord.Member):
+    guild = ctx.guild
+    mutedrole = discord.utils.get(guild.roles, name="muted")
+    await member.remove_roles(mutedrole)
+    await ctx.send(f"Unmuted user {member.mention}")
+    await member.send(f"You were unmuted in the server {guild.name}")
 
 
 
@@ -51,25 +58,21 @@ async def ban(ctx, member: discord.Member, *, reason=None):
 
 
 
-@client.command()
-async def test(ctx):
-    e = discord.Embed()
-    e.set_image(url="p")
-    await ctx.send(e=e)
 
 
-@client.command()
-async def help(ctx):
+
+
+@client.group(name="help", invoke_without_command=True)
+async def help_cmd(ctx):
     embed = discord.Embed(title="BruhBot command list!", description="(Currency coming soon!)")
     embed.add_field(name="Fun 😊", value="`>>help fun`", inline=True)
     embed.add_field(name="Image 📷", value="`>>help image`", inline=True)
     embed.add_field(name="Memey 😂", value="`>>help memey`", inline=True)
     embed.add_field(name="Moderation⚙️", value="`help moderation`", inline=True)
-    embed.add_field(name="Placeholder", value="Placeholder", inline=True)
+    embed.add_field(name="Utility", value="`help utility`", inline=True)
     embed.add_field(name="Placeholder", value="Placeholder", inline=True)
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
-
 
 
 
