@@ -17,6 +17,7 @@ async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.Game(">>Help"))
 
 @client.command()
+@commands.has_permissions(manage_messages=True)
 async def mute(ctx,member: discord.Member, *, reason=None):
     guild = ctx.guild
     mutedrole = discord.utils.get(guild.roles, name="muted1582")
@@ -30,6 +31,7 @@ async def mute(ctx,member: discord.Member, *, reason=None):
     await member.send(f"You were muted in the server {guild.name} for {reason}")
 
 @client.command()
+@commands.has_permissions(manage_messages=True)
 async def unmute(ctx,member: discord.Member):
     guild = ctx.guild
     mutedrole = discord.utils.get(guild.roles, name="muted1582")
@@ -41,20 +43,26 @@ async def unmute(ctx,member: discord.Member):
 @client.command()
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member, *, reason=None):
+    guild = ctx.guild
+    await member.send(f"You were kicked from the server {guild.name}")
     await member.kick(reason=reason)
-    await ctx.send("user " + member.display_name + " has been kicked")
+    await ctx.send("User " + member.display_name + " has been kicked")
+
 
 
 
 @client.command()
 @commands.has_permissions(ban_members=True)
 async def ban(ctx, member: discord.Member, *, reason=None):
+    guild = ctx.guild
+    await member.send(f"You were banned from the server {guild.name}")
     await member.ban(reason=reason)
     await ctx.send("user " + member.display_name + " has been banned")
 
 @client.command()
 @commands.has_permissions(ban_members=True)
 async def unban(ctx, *, member):
+    guild = ctx.guild
     banned_users = await ctx.guild.bans()
     member_name, member_discriminator = member.split("#")
 
@@ -77,7 +85,7 @@ async def help(ctx):
     embed.add_field(name="Image 📷", value="`>>help image`", inline=True)
     embed.add_field(name="Memey 😂", value="`>>help memey`", inline=True)
     embed.add_field(name="Moderation⚙️", value="`>>help moderation`", inline=True)
-    embed.add_field(name="Utility", value="`>>help utility`", inline=True)
+    embed.add_field(name="Utility🛠️", value="`>>help utility`", inline=True)
     embed.add_field(name="Placeholder", value="Placeholder", inline=True)
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
@@ -87,9 +95,22 @@ async def help_mod(ctx):
     embed = discord.Embed(title="⚙️ Moderation Commands ⚙️")
     embed.add_field(name="⠀", value="`ban`, `unban`, `mute`, `unmute`, `kick` `clear`", inline=True)
 
+    embed.set_footer(text="use >> before every command!")
+    await ctx.send(embed=embed)
+
+@help.command(name="moderation")
+async def help_mod(ctx):
+    embed = discord.Embed(title="⚙️ Moderation Commands ⚙️")
+    embed.add_field(name="⠀", value="`ping`, ``, `mute`, `unmute`, `kick` `clear`", inline=True)
 
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
+
+
+
+
+
+
 
 
 
@@ -119,7 +140,7 @@ async def _8ball(ctx, *, question):
     await ctx.send(f"```question: {question}\nAnswer: {random.choice(responces)}```")
 
 
-@client.command(aliases=["McName", "3Letter"])
+@client.command(aliases=["McName", "3Letter", "3char"])
 async def _3letterword(ctx):
     letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
                "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
@@ -145,4 +166,4 @@ async def ping(ctx):
 
 
 
-client.run('Nzk5MjY3NjE5MzY2NTAyNDcx.YABF-g.oEc10kG2Lgb0OKwZzSkUosZo0WY')
+client.run('')
