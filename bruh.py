@@ -19,10 +19,10 @@ async def on_ready():
 @client.command()
 async def mute(ctx,member: discord.Member, *, reason=None):
     guild = ctx.guild
-    mutedrole = discord.utils.get(guild.roles, name="muted")
+    mutedrole = discord.utils.get(guild.roles, name="muted1582")
 
     if not mutedrole:
-        mutedrole = await guild.create_role(name="muted")
+        mutedrole = await guild.create_role(name="muted1582")
         for channel in guild.channels:
             await channel.set_permissions(mutedrole, speak=False, send_messages=False, read_message_history=True, read_messages=True)
     await member.add_roles(mutedrole, reason=reason)
@@ -32,14 +32,10 @@ async def mute(ctx,member: discord.Member, *, reason=None):
 @client.command()
 async def unmute(ctx,member: discord.Member):
     guild = ctx.guild
-    mutedrole = discord.utils.get(guild.roles, name="muted")
+    mutedrole = discord.utils.get(guild.roles, name="muted1582")
     await member.remove_roles(mutedrole)
     await ctx.send(f"Unmuted user {member.mention}")
     await member.send(f"You were unmuted in the server {guild.name}")
-
-
-
-
 
 
 @client.command()
@@ -56,36 +52,43 @@ async def ban(ctx, member: discord.Member, *, reason=None):
     await member.ban(reason=reason)
     await ctx.send("user " + member.display_name + " has been banned")
 
+@client.command()
+@commands.has_permissions(ban_members=True)
+async def unban(ctx, *, member):
+    banned_users = await ctx.guild.bans()
+    member_name, member_discriminator = member.split("#")
 
+    for ban_entry in banned_users:
+        user = ban_entry.user
+
+        if (user.name, user.discriminator) == (member_name, member_discriminator):
+            await ctx.guild.unban(user)
+            await ctx.send(f"unbanned {user.mention}")
+            return
 
 
 
 
 
 @client.group(name="help", invoke_without_command=True)
-async def help_cmd(ctx):
+async def help(ctx):
     embed = discord.Embed(title="BruhBot command list!", description="(Currency coming soon!)")
     embed.add_field(name="Fun 😊", value="`>>help fun`", inline=True)
     embed.add_field(name="Image 📷", value="`>>help image`", inline=True)
     embed.add_field(name="Memey 😂", value="`>>help memey`", inline=True)
-    embed.add_field(name="Moderation⚙️", value="`help moderation`", inline=True)
-    embed.add_field(name="Utility", value="`help utility`", inline=True)
+    embed.add_field(name="Moderation⚙️", value="`>>help moderation`", inline=True)
+    embed.add_field(name="Utility", value="`>>help utility`", inline=True)
     embed.add_field(name="Placeholder", value="Placeholder", inline=True)
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
+@help.command(name="moderation")
+async def help_mod(ctx):
+    embed = discord.Embed(title="⚙️ Moderation Commands ⚙️")
+    embed.add_field(name="⠀", value="`ban`, `unban`, `mute`, `unmute`, `kick` `clear`", inline=True)
 
 
-
-
-
-@client.command()
-async def image(ctx):
-    embed = discord.Embed()
-
-    image = ["https://anthropocenemagazine.org/wp-content/uploads/2020/04/Panda-2.jpg", "http://getwallpapers.com/wallpaper/full/4/6/5/768307-free-download-panda-bear-background-2048x1365.jpg"]
-
-    embed.set_image(url=f"{random.choice(image)}")
+    embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
 
