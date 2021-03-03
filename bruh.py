@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import random
-
+import os
 
 
 
@@ -15,6 +15,23 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     print("BruhBot Activated")
     await client.change_presence(status=discord.Status.online, activity=discord.Game(">>Help"))
+
+@client.command()
+async def help_config(ctx, extention):
+    client.load extention(f"cogs.{extention}")
+
+@client.command()
+async def help_config(ctx, extention):
+    client.unload_extension(f"cogs.{extention}")
+
+
+for filename in os.listdir("./")
+
+
+
+
+
+
 
 
 
@@ -47,10 +64,15 @@ async def help(ctx):
     embed.add_field(name="Fun 😊", value="`>>help fun`", inline=True)
     embed.add_field(name="Image 📷", value="`>>help image`", inline=True)
     embed.add_field(name="Memey 😂", value="`>>help memey`", inline=True)
+    embed.add_field(name="Moderation⚙️", value="`help moderation`", inline=True)
     embed.add_field(name="Placeholder", value="Placeholder", inline=True)
     embed.add_field(name="Placeholder", value="Placeholder", inline=True)
-    embed.add_field(name="Placeholder", value="Placeholder", inline=True)
+    embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
+
+
+
+
 
 
 
