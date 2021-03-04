@@ -98,8 +98,8 @@ async def help_mod(ctx):
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
-@help.command(name="moderation")
-async def help_mod(ctx):
+@help.command(name="fun")
+async def help_fun(ctx):
     embed = discord.Embed(title="⚙️ Moderation Commands ⚙️")
     embed.add_field(name="⠀", value="`ping`, ``, `mute`, `unmute`, `kick` `clear`", inline=True)
 
@@ -107,6 +107,31 @@ async def help_mod(ctx):
     await ctx.send(embed=embed)
 
 
+
+
+
+@client.command()
+async def kill(ctx, member: discord.Member, ):
+    deaths = [f"{ctx.author.name} ripped off {member.mention}'s head", f"{member.mention} got hit by a train", f"{member.mention} fell off a cliff",
+              f"{ctx.author.name} sliced {member.mention} into 30 pieces", f"you tried to shoot {member.mention}, but it ricochet and exploded your head",
+              f"{member.mention} watched the emoji movie and died of cringe", f"{member.mention} got karate kicked in the head", f"{ctx.author.name} pulled out {member.mention}'s guts"]
+    await ctx.send(f"{random.choice(deaths)}")
+
+
+@client.command(aliases=["dox", "doxx"])
+async def autodox(ctx, member: discord.Member):
+    s = open("address.txt", "r")
+    m = s.readlines()
+    l = []
+    for i in range(0, len(m) - 1):
+        x = m[i]
+        z = len(x)
+        a = x[:z - 1]
+        l.append(a)
+    l.append(m[i + 1])
+    o = random.choice(l)
+    await ctx.send(f"{member.mention} lives at " + (o))
+    s.close()
 
 
 
@@ -166,4 +191,4 @@ async def ping(ctx):
 
 
 
-client.run('')
+client.run('Nzk5MjY3NjE5MzY2NTAyNDcx.YABF-g.oEc10kG2Lgb0OKwZzSkUosZo0WY')
