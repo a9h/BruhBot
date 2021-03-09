@@ -216,7 +216,13 @@ async def clear(ctx, amount : int):
 async def ping(ctx):
     await ctx.send(f"pong! {round(client.latency * 1000)}ms")
 
+@client.command()
+async def author(ctx):
+    print("Made by A9H#8923, https://github.com/a9h")
+    embed = discord.Embed(color=0xd60000)
+    embed.add_field(name="Made by A9H#8923", value="https://github.com/a9h", inline=True)
+    embed.add_field(name="‎", value="Fun Fact: this is the only colored embed in BruhBot", inline=False)
+    await ctx.send(embed=embed)
 
 
-
-client.run("")
+client.run("Nzk5MjY3NjE5MzY2NTAyNDcx.YABF-g.oEc10kG2Lgb0OKwZzSkUosZo0WY")
