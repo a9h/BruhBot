@@ -2,7 +2,33 @@ import discord
 from discord.ext import commands
 import random
 
+"""
+8 888888888o             8 888888888o.             8 8888      88           8 8888        8
+8 8888    `88.           8 8888    `88.            8 8888      88           8 8888        8
+8 8888     `88           8 8888     `88            8 8888      88           8 8888        8
+8 8888     ,88           8 8888     ,88            8 8888      88           8 8888        8
+8 8888.   ,88'           8 8888.   ,88'            8 8888      88           8 8888        8
+8 8888888888             8 888888888P'             8 8888      88           8 8888        8
+8 8888    `88.           8 8888`8b                 8 8888      88           8 8888888888888
+8 8888      88           8 8888 `8b.               ` 8888     ,8P           8 8888        8
+8 8888    ,88'           8 8888   `8b.               8888   ,d8P            8 8888        8
+8 888888888P             8 8888     `88.              `Y88888P'             8 8888        8
 
+8 888888888o                 ,o888888o.               8888888 8888888888
+8 8888    `88.            . 8888     `88.                   8 8888
+8 8888     `88           ,8 8888       `8b                  8 8888
+8 8888     ,88           88 8888        `8b                 8 8888
+8 8888.   ,88'           88 8888         88                 8 8888
+8 8888888888             88 8888         88                 8 8888
+8 8888    `88.           88 8888        ,8P                 8 8888
+8 8888      88           `8 8888       ,8P                  8 8888
+8 8888    ,88'            ` 8888     ,88'                   8 8888
+8 888888888P                 `8888888P'                     8 8888     
+
+
+Made by A9H#8923
+Github https://github.com/a9h
+"""
 
 
 client = commands.Bot(command_prefix=">>")
@@ -100,8 +126,8 @@ async def help_mod(ctx):
 
 @help.command(name="fun")
 async def help_fun(ctx):
-    embed = discord.Embed(title="⚙️ Moderation Commands ⚙️")
-    embed.add_field(name="⠀", value="`ping`, ``, `mute`, `unmute`, `kick` `clear`", inline=True)
+    embed = discord.Embed(title="Fun Commands")
+    embed.add_field(name="⠀", value="`Kill`, `Dox`, ``, `unmute`, `kick` `clear`", inline=True)
 
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
@@ -114,11 +140,14 @@ async def help_fun(ctx):
 async def kill(ctx, member: discord.Member, ):
     deaths = [f"{ctx.author.name} ripped off {member.mention}'s head", f"{member.mention} got hit by a train", f"{member.mention} fell off a cliff",
               f"{ctx.author.name} sliced {member.mention} into 30 pieces", f"you tried to shoot {member.mention}, but it ricochet and exploded your head",
-              f"{member.mention} watched the emoji movie and died of cringe", f"{member.mention} got karate kicked in the head", f"{ctx.author.name} pulled out {member.mention}'s guts"]
+              f"{member.mention} watched the emoji movie and died of cringe", f"{member.mention} got karate kicked in the head", f"{ctx.author.name} pulled out {member.mention}'s guts"
+              , f"{member.mention} died of death", f"{member.mention} choked on a toothbrush", f"{member.mention} got spiked by a cactus", f"{ctx.author.name} smited {member.mention} with lightning",
+              f"{ctx.author.name} shoved a crystal down {member.mention}'s throat"]
+
     await ctx.send(f"{random.choice(deaths)}")
 
 
-@client.command(aliases=["dox", "doxx"])
+@client.command(aliases=["dox", "doxx"]) #THIS IS A JOKE FEATURE AND ONLY PROVIDES FAKE ADDRESSES
 async def autodox(ctx, member: discord.Member):
     s = open("address.txt", "r")
     m = s.readlines()
@@ -132,7 +161,6 @@ async def autodox(ctx, member: discord.Member):
     o = random.choice(l)
     await ctx.send(f"{member.mention} lives at " + (o))
     s.close()
-
 
 
 
@@ -191,4 +219,4 @@ async def ping(ctx):
 
 
 
-client.run('Nzk5MjY3NjE5MzY2NTAyNDcx.YABF-g.oEc10kG2Lgb0OKwZzSkUosZo0WY')
+client.run("")
