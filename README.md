@@ -9,10 +9,9 @@ Thanks to clapped#5281 for testing it
 When this repository goes public, I will add more to the readme
 
 -------------------------
--------------------------
--------------------------
--------------------------
--------------------------
+
+The ascii art messes up the readme, thats why it looks hella weird.
+
 -------------------------
 
   ____    _____    _    _   _    _ 
