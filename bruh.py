@@ -40,6 +40,7 @@ client.remove_command("help")
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     print("BruhBot Activated")
+    print("A9H#8923")
     await client.change_presence(status=discord.Status.online, activity=discord.Game(">>Help"))
 
 @client.command()
@@ -218,7 +219,6 @@ async def ping(ctx):
 
 @client.command()
 async def author(ctx):
-    print("Made by A9H#8923, https://github.com/a9h")
     embed = discord.Embed(color=0xd60000)
     embed.add_field(name="Made by A9H#8923", value="https://github.com/a9h", inline=True)
     embed.add_field(name="‎", value="Fun Fact: this is the only colored embed in BruhBot", inline=False)
