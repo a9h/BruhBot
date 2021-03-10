@@ -40,7 +40,7 @@ client.remove_command("help")
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     print("BruhBot Activated")
-    print("A9H#8923")
+    print("Developed by A9H#8923")
     await client.change_presence(status=discord.Status.online, activity=discord.Game(">>Help"))
 
 @client.command()
@@ -128,11 +128,15 @@ async def help_mod(ctx):
 @help.command(name="fun")
 async def help_fun(ctx):
     embed = discord.Embed(title="Fun Commands")
-    embed.add_field(name="⠀", value="`Kill`, `Dox`, ``, `unmute`, `kick` `clear`", inline=True)
+    embed.add_field(name="⠀", value="`Kill`, `Dox`, `waifurate`, `epicgamer`, `` `clear`", inline=True)
 
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
+@client.command()
+async def waifu(ctx):
+    number = random.randint
+    await ctx.send(number)
 
 
 
