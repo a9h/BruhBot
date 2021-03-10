@@ -1,6 +1,10 @@
 import discord
 from discord.ext import commands
 import random
+import praw
+
+reddit = praw.Reddit(client_id =  "lHqFX0eMpjvenA", client_secret = "4XnYG-_BLGHZ855EEGWnKHwXLiSy6A", 
+username = "Diamond_1213", password = "iLkTI9L9cjZQk", user_agent = "pythonpraw", check_for_async=False)
 
 """
 8 888888888o             8 888888888o.             8 8888      88           8 8888        8
@@ -76,6 +80,22 @@ async def kick(ctx, member: discord.Member, *, reason=None):
     await ctx.send("User " + member.display_name + " has been kicked")
 
 
+@client.command()
+async def meme(ctx):
+    subreddit = reddit.subreddit("memes")
+    all_subs = []
+    top = subreddit.top(limit = 50)
+    for submission in top:
+        all_subs.append(submission)
+
+    random_sub = random.choice(all_subs)
+    name = random_sub.title
+    url = random_sub.url
+
+    embed = discord.Embed(title = name)
+    embed.set_image(url = url)
+    await ctx.send(embed = embed)
+
 
 
 @client.command()
@@ -108,7 +128,7 @@ async def unban(ctx, *, member):
 @client.group(name="help", invoke_without_command=True)
 async def help(ctx):
     embed = discord.Embed(title="BruhBot command list!", description="(Currency coming soon!)")
-    embed.add_field(name="Fun 😊", value="`>>help fun`", inline=True)
+    embed.add_field(name="Fun :smile:", value="`>>help fun`", inline=True)
     embed.add_field(name="Image 📷", value="`>>help image`", inline=True)
     embed.add_field(name="Memey 😂", value="`>>help memey`", inline=True)
     embed.add_field(name="Moderation⚙️", value="`>>help moderation`", inline=True)
@@ -127,17 +147,31 @@ async def help_mod(ctx):
 
 @help.command(name="fun")
 async def help_fun(ctx):
-    embed = discord.Embed(title="Fun Commands")
-    embed.add_field(name="⠀", value="`Kill`, `Dox`, `waifurate`, `epicgamer`, `` `clear`", inline=True)
+    embed = discord.Embed(title=":smile: Fun Commands :smile:")
+    embed.add_field(name="⠀", value="`Kill`, `Dox`, `waifurate`, `epicgamer`, `8ball`, `3name`", inline=True)
 
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
 @client.command()
-async def waifu(ctx):
-    number = random.randint
-    await ctx.send(number)
-
+async def waifurate(ctx):
+    number = random.randint(1, 100)
+    if 25 > number:
+        embed = discord.Embed()
+        embed.add_field(name="Waifu rate machine", value=f"You are {number}/100 waifu :nauseated_face:")
+        await ctx.send(embed=embed)
+    elif number > 25 and number < 50:
+        embed = discord.Embed()
+        embed.add_field(name="Waifu rate machine", value=f"You are {number}/100 waifu :confused:")
+        await ctx.send(embed=embed)
+    elif number > 50 and number < 75:
+        embed = discord.Embed()
+        embed.add_field(name="Waifu rate machine", value=f"You are {number}/100 waifu :relieved:")
+        await ctx.send(embed=embed)
+    elif number > 75:
+        embed = discord.Embed()
+        embed.add_field(name="Waifu rate machine", value=f"You are {number}/100 waifu :open_mouth:")
+        await ctx.send(embed=embed)
 
 
 
@@ -198,13 +232,13 @@ async def _8ball(ctx, *, question):
     await ctx.send(f"```question: {question}\nAnswer: {random.choice(responces)}```")
 
 
-@client.command(aliases=["McName", "3Letter", "3char"])
+@client.command(aliases=["McName", "3Letter", "3char", "3name"])
 async def _3letterword(ctx):
     letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
                "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
                "y", "z" "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
-    await ctx.send(f"```your 3 letter word is: {random.choice(letters)}{random.choice(letters)}{random.choice(letters)}```")
+    await ctx.send(f"```your 3 letter name is: {random.choice(letters)}{random.choice(letters)}{random.choice(letters)}```")
 
 
 
