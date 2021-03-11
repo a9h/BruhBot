@@ -97,6 +97,25 @@ async def meme(ctx):
     await ctx.send(embed = embed)
 
 
+@client.command()
+async def reddit(ctx, subred = "memes"):
+    subreddit = reddit.subreddit(subred)
+    all_subs = []
+    top = subreddit.top(limit = 50)
+    for submission in top:
+        all_subs.append(submission)
+
+    random_sub = random.choice(all_subs)
+    name = random_sub.title
+    url = random_sub.url
+
+    embed = discord.Embed(title = name)
+    embed.set_image(url = url)
+    await ctx.send(embed = embed) 
+
+    if sub==None:
+        await ctx.semd("You need to say a subreddit to get a post from!")
+
 
 @client.command()
 @commands.has_permissions(ban_members=True)
