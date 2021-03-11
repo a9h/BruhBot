@@ -133,7 +133,7 @@ async def help(ctx):
     embed.add_field(name="Memey 😂", value="`>>help memey`", inline=True)
     embed.add_field(name="Moderation⚙️", value="`>>help moderation`", inline=True)
     embed.add_field(name="Utility🛠️", value="`>>help utility`", inline=True)
-    embed.add_field(name="Placeholder", value="Placeholder", inline=True)
+    embed.add_field(name="Reddit", value=">>help reddit", inline=True)
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
