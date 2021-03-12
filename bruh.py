@@ -2,9 +2,17 @@ import discord
 from discord.ext import commands
 import random
 import praw
+import requests 
+
+
+
 
 reddit = praw.Reddit(client_id =  "lHqFX0eMpjvenA", client_secret = "4XnYG-_BLGHZ855EEGWnKHwXLiSy6A", 
 username = "Diamond_1213", password = "iLkTI9L9cjZQk", user_agent = "pythonpraw", check_for_async=False)
+
+
+    
+
 
 """
 8 888888888o             8 888888888o.             8 8888      88           8 8888        8
@@ -96,9 +104,8 @@ async def meme(ctx):
     embed.set_image(url = url)
     await ctx.send(embed = embed)
 
-
 @client.command()
-async def reddit(ctx, subred = "memes"):
+async def reddit(ctx, subred = ""):
     subreddit = reddit.subreddit(subred)
     all_subs = []
     top = subreddit.top(limit = 50)
@@ -108,14 +115,11 @@ async def reddit(ctx, subred = "memes"):
     random_sub = random.choice(all_subs)
     name = random_sub.title
     url = random_sub.url
+    
 
     embed = discord.Embed(title = name)
     embed.set_image(url = url)
-    await ctx.send(embed = embed) 
-
-    if sub==None:
-        await ctx.semd("You need to say a subreddit to get a post from!")
-
+    await ctx.send(embed = embed)
 
 @client.command()
 @commands.has_permissions(ban_members=True)
@@ -141,7 +145,26 @@ async def unban(ctx, *, member):
             return
 
 
+@client.command()
+async def fox(ctx):
+    response = requests.get("https://randomfox.ca/floof/")
+    fox = response.json()
+    url = (fox["image"])
+    embed = discord.Embed()
+    embed.set_image(url = url)
+    
+    await ctx.send(embed = embed)
+    
 
+@client.command()
+async def dog(ctx):
+    response = requests.get("https://some-random-api.ml/img/dog")
+    fox = response.json()
+    url = (fox["link"])
+    embed = discord.Embed()
+    embed.set_image(url = url)
+    
+    await ctx.send(embed = embed)
 
 
 @client.group(name="help", invoke_without_command=True)
@@ -168,7 +191,7 @@ async def help_mod(ctx):
 async def help_fun(ctx):
     embed = discord.Embed(title=":smile: Fun Commands :smile:")
     embed.add_field(name="⠀", value="`Kill`, `Dox`, `waifurate`, `epicgamer`, `8ball`, `3name`", inline=True)
-
+    #If you are reading this then hello
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
