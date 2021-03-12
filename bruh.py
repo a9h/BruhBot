@@ -145,26 +145,6 @@ async def unban(ctx, *, member):
             return
 
 
-@client.command()
-async def fox(ctx):
-    response = requests.get("https://randomfox.ca/floof/")
-    fox = response.json()
-    url = (fox["image"])
-    embed = discord.Embed()
-    embed.set_image(url = url)
-    
-    await ctx.send(embed = embed)
-    
-
-@client.command()
-async def dog(ctx):
-    response = requests.get("https://some-random-api.ml/img/dog")
-    fox = response.json()
-    url = (fox["link"])
-    embed = discord.Embed()
-    embed.set_image(url = url)
-    
-    await ctx.send(embed = embed)
 
 
 @client.group(name="help", invoke_without_command=True)
@@ -175,7 +155,7 @@ async def help(ctx):
     embed.add_field(name="Memey 😂", value="`>>help memey`", inline=True)
     embed.add_field(name="Moderation⚙️", value="`>>help moderation`", inline=True)
     embed.add_field(name="Utility🛠️", value="`>>help utility`", inline=True)
-    embed.add_field(name="Reddit", value=">>help reddit", inline=True)
+    embed.add_field(name="Facts❓", value=">>help facts", inline=True)
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
@@ -194,6 +174,62 @@ async def help_fun(ctx):
     #If you are reading this then hello
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
+
+@help.command(name="facts")
+async def help_fact(ctx):
+    embed = discord.Embed(title="❓Fact commands❓")
+    embed.add_field(name="⠀", value="`catfact`, `dogfact`, `pandafact`, `foxfact`, `birdfact`, `koalafact`")
+    embed.set_footer(text="use >> before every command!")
+    await ctx.send(embed=embed)
+
+@client.command()
+async def dogfact(ctx):
+    response = requests.get("https://some-random-api.ml/facts/dog")
+    fact = response.json()
+    url = (fact["fact"])
+    await ctx.send(url)
+
+
+@client.command()
+async def catfact(ctx):
+    response = requests.get("https://some-random-api.ml/facts/cat")
+    fact = response.json()
+    url = (fact["fact"])
+    await ctx.send(url)
+
+@client.command()
+async def foxfact(ctx):
+    response = requests.get("https://some-random-api.ml/facts/fox")
+    fact = response.json()
+    url = (fact["fact"])
+    await ctx.send(url)
+
+
+@client.command()
+async def pandafact(ctx):
+    response = requests.get("https://some-random-api.ml/facts/panda")
+    fact = response.json()
+    url = (fact["fact"])
+    await ctx.send(url)
+
+@client.command()
+async def birdfact(ctx):
+    response = requests.get("https://some-random-api.ml/facts/bird")
+    fact = response.json()
+    url = (fact["fact"])
+    await ctx.send(url)
+
+
+
+@client.command()
+async def koalafact(ctx):
+    response = requests.get("https://some-random-api.ml/facts/koala")
+    fact = response.json()
+    url = (fact["fact"])
+    await ctx.send(url)
+
+
+
 
 @client.command()
 async def waifurate(ctx):
