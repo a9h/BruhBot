@@ -53,7 +53,7 @@ client.remove_command("help")
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     print("BruhBot Activated")
-    print("Developed by A9H#8923")
+    print("Developed by A9H#8923 and tomekcos")
     await client.change_presence(status=discord.Status.online, activity=discord.Game(">>Help"))
 
 
