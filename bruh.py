@@ -203,20 +203,7 @@ async def dog(ctx):
     await ctx.send(url)
 
 
-@client.command()
-async def iphonex(ctx, url: str):
-    async with aiohttp.ClientSession() as ses:
-        async with ses.get(f"https://nekobot.xyz/api/imagegen?type=iphonex&image={url}") as r:
-            if r.status in range(200, 299):
-                data = await r.json()
-                url = data["message"]
-                embed = discord.Embed(title = "MOM IM ON AN IPHONE!")
-                embed.set_image(url=url)
-                await ctx.send(embed=embed)
-                await ses.close
-            else:
-                await ctx.send("error making request")
-                await ses.close
+
 
 
 
