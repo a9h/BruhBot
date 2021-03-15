@@ -3,6 +3,7 @@ from discord.ext import commands
 import random
 import praw
 import requests 
+import os
 
 
 
@@ -55,6 +56,30 @@ async def on_ready():
     print("Developed by A9H#8923")
     await client.change_presence(status=discord.Status.online, activity=discord.Game(">>Help"))
 
+
+
+@client.command()
+async def load(ctx, extention):
+    client.load_extension(f"cogs.{extention}")
+
+
+@client.command()
+async def unload(ctx, extention):
+    client.unload_extension(f"cogs.{extention}")
+
+
+for filename in os.listdir("./cogs"):
+    if filename.endswith(".py"):
+        client.load_extension(f"cogs.{filename[:-3]}")
+
+
+
+
+
+
+
+
+
 @client.command()
 @commands.has_permissions(manage_messages=True)
 async def mute(ctx,member: discord.Member, *, reason=None):
@@ -104,22 +129,7 @@ async def meme(ctx):
     embed.set_image(url = url)
     await ctx.send(embed = embed)
 
-@client.command()
-async def reddit(ctx, subred = ""):
-    subreddit = reddit.subreddit(subred)
-    all_subs = []
-    top = subreddit.top(limit = 50)
-    for submission in top:
-        all_subs.append(submission)
 
-    random_sub = random.choice(all_subs)
-    name = random_sub.title
-    url = random_sub.url
-    
-
-    embed = discord.Embed(title = name)
-    embed.set_image(url = url)
-    await ctx.send(embed = embed)
 
 @client.command()
 @commands.has_permissions(ban_members=True)
@@ -155,7 +165,7 @@ async def help(ctx):
     embed.add_field(name="Memey 😂", value="`>>help memey`", inline=True)
     embed.add_field(name="Moderation⚙️", value="`>>help moderation`", inline=True)
     embed.add_field(name="Utility🛠️", value="`>>help utility`", inline=True)
-    embed.add_field(name="Facts❓", value=">>help facts", inline=True)
+    embed.add_field(name="Animals🐶", value=">>help animals", inline=True)
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
@@ -175,10 +185,10 @@ async def help_fun(ctx):
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
-@help.command(name="facts")
-async def help_fact(ctx):
-    embed = discord.Embed(title="❓Fact commands❓")
-    embed.add_field(name="⠀", value="`catfact`, `dogfact`, `pandafact`, `foxfact`, `birdfact`, `koalafact`")
+@help.command(name="animals")
+async def help_animal(ctx):
+    embed = discord.Embed(title="🐶Animal commands🐶")
+    embed.add_field(name="⠀", value="`catfact`, `dogfact`, `pandafact`, `foxfact`, `birdfact`, `koalafact`, `dog`, `cat`, `panda`, `redpanda`, `bird`, `fox`, `koala`")
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
@@ -227,6 +237,29 @@ async def koalafact(ctx):
     fact = response.json()
     url = (fact["fact"])
     await ctx.send(url)
+
+@client.command()
+async def dog(ctx):
+    response = requests.get("https://some-random-api.ml/facts/koala")
+    fact = response.json()
+    url = (fact["fact"])
+    await ctx.send(url)
+
+
+@client.command()
+async def iphonex(ctx, url: str):
+    async with aiohttp.ClientSession() as ses:
+        async with ses.get(f"https://nekobot.xyz/api/imagegen?type=iphonex&image={url}") as r:
+            if r.status in range(200, 299):
+                data = await r.json()
+                url = data["message"]
+                embed = discord.Embed(title = "MOM IM ON AN IPHONE!")
+                embed.set_image(url=url)
+                await ctx.send(embed=embed)
+                await ses.close
+            else:
+                await ctx.send("error making request")
+                await ses.close
 
 
 
@@ -341,4 +374,4 @@ async def author(ctx):
     await ctx.send(embed=embed)
 
 
-client.run("Nzk5MjY3NjE5MzY2NTAyNDcx.YABF-g.oEc10kG2Lgb0OKwZzSkUosZo0WY")
+client.run("Nzk5MjY3NjE5MzY2NTAyNDcx.YABF-g.VsTXoKeHRFJiHXRIWew9HjSeD7w")
