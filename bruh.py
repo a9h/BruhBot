@@ -64,8 +64,10 @@ async def load(ctx, extention):
 
 
 @client.command()
-async def unload(ctx, extention):
+async def renload(ctx, extention):
     client.unload_extension(f"cogs.{extention}")
+    client.load_extension(f"cogs.{extention}")
+    await ctx.send("Cog has been reloaded. Please only use this feature if you are a developer")
 
 
 for filename in os.listdir("./cogs"):
@@ -192,51 +194,6 @@ async def help_animal(ctx):
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
-@client.command()
-async def dogfact(ctx):
-    response = requests.get("https://some-random-api.ml/facts/dog")
-    fact = response.json()
-    url = (fact["fact"])
-    await ctx.send(url)
-
-
-@client.command()
-async def catfact(ctx):
-    response = requests.get("https://some-random-api.ml/facts/cat")
-    fact = response.json()
-    url = (fact["fact"])
-    await ctx.send(url)
-
-@client.command()
-async def foxfact(ctx):
-    response = requests.get("https://some-random-api.ml/facts/fox")
-    fact = response.json()
-    url = (fact["fact"])
-    await ctx.send(url)
-
-
-@client.command()
-async def pandafact(ctx):
-    response = requests.get("https://some-random-api.ml/facts/panda")
-    fact = response.json()
-    url = (fact["fact"])
-    await ctx.send(url)
-
-@client.command()
-async def birdfact(ctx):
-    response = requests.get("https://some-random-api.ml/facts/bird")
-    fact = response.json()
-    url = (fact["fact"])
-    await ctx.send(url)
-
-
-
-@client.command()
-async def koalafact(ctx):
-    response = requests.get("https://some-random-api.ml/facts/koala")
-    fact = response.json()
-    url = (fact["fact"])
-    await ctx.send(url)
 
 @client.command()
 async def dog(ctx):
