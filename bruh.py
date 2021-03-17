@@ -4,6 +4,7 @@ import random
 import praw
 import requests 
 import os
+import json
 
 
 
@@ -64,7 +65,7 @@ async def load(ctx, extention):
 
 
 @client.command()
-async def renload(ctx, extention):
+async def reload(ctx, extention):
     client.unload_extension(f"cogs.{extention}")
     client.load_extension(f"cogs.{extention}")
     await ctx.send("Cog has been reloaded. Please only use this feature if you are a developer")
@@ -190,7 +191,7 @@ async def help_fun(ctx):
 @help.command(name="animals")
 async def help_animal(ctx):
     embed = discord.Embed(title="🐶Animal commands🐶")
-    embed.add_field(name="⠀", value="`catfact`, `dogfact`, `pandafact`, `foxfact`, `birdfact`, `koalafact`, `dog`, `cat`, `panda`, `redpanda`, `bird`, `fox`, `koala`")
+    embed.add_field(name="⠀", value="`catfact`, `dogfact`, `pandafact`, `foxfact`, `birdfact`, `koalafact`, `kangaroofact`, `racoonfact`, `elephantfact`, `giraffefact`, `whalefact`, `dog`, `cat`, `panda`, `redpanda`, `bird`, `fox`, `koala`")
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
@@ -268,6 +269,85 @@ async def autodox(ctx, member: discord.Member):
     o = random.choice(l)
     await ctx.send(f"{member.mention} lives at " + (o))
     s.close()
+
+
+
+
+@client.command()
+async def balance(ctx):
+    await open_account(ctx.author)
+    user = ctx.author
+    users = await get_bank_data()
+
+    wallet_amt = users[str(user.id)]["wallet"] 
+    bank_amt = users[str(user.id)]["bank"] 
+
+    embed = discord.Embed(Title = f"{ctx.author.name}'s balance")
+    embed.add_field(name = "Wallet balance",value = wallet_amt)
+    embed.add_field(name = "Bank balance",value = bank_amt)
+    await ctx.send(embed=embed)
+
+
+@client.command()
+async def beg(ctx):
+    await open_account(ctx.author)
+    user = ctx.author
+    users = await get_bank_data()
+    earnings = random.randrange(101)
+
+    await ctx.send(f"someone gave you {earnings} coins!")
+
+    users[str(user.id)]["wallet"] += earnings
+
+    with open("mainbank.json", "w") as f:
+        users = json.dump(users,f)
+
+
+
+
+async def open_account(user):
+
+
+    users = await get_bank_data()
+   
+
+    if str(user.id) in users:
+        return False
+    else:
+        users[str(user.id)] = {}
+        users[str(user.id)]["wallet"] = 0
+        users[str(user.id)]["bank"] = 0
+
+
+    with open("mainbank.json", "w") as f:
+        users = json.dump(users,f)
+    return True
+    
+
+    
+
+async def get_bank_data():
+        with open("mainbank.json", "r") as f:
+            users = json.load(f)
+        
+        return users
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -55,6 +55,52 @@ class Example(commands.Cog):
 
 
 
+    @commands.command()
+    async def kangaroofact(self, ctx):
+        response = requests.get("https://some-random-api.ml/facts/kangaroo")
+        fact = response.json()
+        url = (fact["fact"])
+        await ctx.send(url)
+
+    @commands.command()
+    async def racoonfact(self, ctx):
+        response = requests.get("https://some-random-api.ml/facts/racoon")
+        fact = response.json()
+        url = (fact["fact"])
+        await ctx.send(url)
+    
+    @commands.command()
+    async def elephantfact(self, ctx):
+        response = requests.get("https://some-random-api.ml/facts/elephant")
+        fact = response.json()
+        url = (fact["fact"])
+        await ctx.send(url)
+
+    @commands.command()
+    async def giraffefact(self, ctx):
+        response = requests.get("https://some-random-api.ml/facts/giraffe")
+        fact = response.json()
+        url = (fact["fact"])
+        await ctx.send(url)
+
+    @commands.command()
+    async def whalefact(self, ctx):
+        response = requests.get("https://some-random-api.ml/facts/whale")
+        fact = response.json()
+        url = (fact["fact"])
+        await ctx.send(url)
+
+    @commands.command()
+    async def (self, ctx):
+        response = requests.get("")
+        fact = response.json()
+        url = (fact["link"])
+        embed=Discord.embed(title="Here is you")
+
+
+
+
+
 
 def setup(client):
     client.add_cog(Example(client))
