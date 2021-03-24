@@ -191,21 +191,18 @@ async def help_fun(ctx):
 @help.command(name="animals")
 async def help_animal(ctx):
     embed = discord.Embed(title="🐶Animal commands🐶")
-    embed.add_field(name="⠀", value="`catfact`, `dogfact`, `pandafact`, `foxfact`, `birdfact`, `koalafact`, `kangaroofact`, `racoonfact`, `elephantfact`, `giraffefact`, `whalefact`, `dog`, `cat`, `panda`, `redpanda`, `bird`, `fox`, `koala`")
+    embed.add_field(name="⠀", value="`catfact`, `dogfact`, `pandafact`, `foxfact`, `birdfact`, `koalafact`, `kangaroofact`, `racoonfact`, `elephantfact`, `giraffefact`, `whalefact`, `dog`, `cat`, `panda`, `redpanda`, `bird`, `fox`, `koala`, `kangaroo`, `racoon`, `whale`")
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
 
 @client.command()
-async def dog(ctx):
-    response = requests.get("https://some-random-api.ml/facts/koala")
-    fact = response.json()
-    url = (fact["fact"])
-    await ctx.send(url)
-
-
-
-
+async def iplookup(ctx, *, ip):
+    response = requests.get(f"https://webresolver.nl/api.php?key=0JQD4-XM3F7-NYR3S-7QX1N&json&action=geoip&string={ip}")
+    bruh = response.json()
+    city1 = (bruh["isp"])
+    await ctx.send(city1)
+    
 
 
 
