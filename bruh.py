@@ -78,7 +78,9 @@ for filename in os.listdir("./cogs"):
 
 
 
-
+@client.command(aliases =["hi", "hello"])
+async def hello(ctx):
+    responces = ["hi, how are you?", "yes, im here!", "hello!", ""]
 
 
 
@@ -196,12 +198,7 @@ async def help_animal(ctx):
     await ctx.send(embed=embed)
 
 
-@client.command()
-async def iplookup(ctx, *, ip):
-    response = requests.get(f"https://webresolver.nl/api.php?key=0JQD4-XM3F7-NYR3S-7QX1N&json&action=geoip&string={ip}")
-    bruh = response.json()
-    city1 = (bruh["isp"])
-    await ctx.send(city1)
+
     
 
 
@@ -320,24 +317,6 @@ async def get_bank_data():
 
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @client.command(aliases=["8ball", "eightball"])
 async def _8ball(ctx, *, question):
     responces = ["It is certain.",
