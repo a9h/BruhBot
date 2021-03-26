@@ -78,8 +78,8 @@ for filename in os.listdir("./cogs"):
 
 
 
-@client.command(aliases =["hi", "hello"])
-async def hello(ctx):
+@client.command(aliases=["hi", "hello"])
+async def e(ctx):
     responces = ["hi, how are you?", "yes, im here!", "hello!", ""]
 
 
