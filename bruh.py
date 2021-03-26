@@ -373,5 +373,12 @@ async def author(ctx):
     embed.add_field(name="‎", value="Fun Fact: this is the only colored embed in BruhBot", inline=False)
     await ctx.send(embed=embed)
 
+with open("config.json") as f:
+    config = json.load(f)
 
-client.run("Nzk5MjY3NjE5MzY2NTAyNDcx.YABF-g.VsTXoKeHRFJiHXRIWew9HjSeD7w")
+
+
+
+
+token = config.get("token")
+client.run(token)
