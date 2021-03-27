@@ -5,6 +5,7 @@ import praw
 import requests 
 import os
 import json
+import time
 
 
 
@@ -75,12 +76,17 @@ for filename in os.listdir("./cogs"):
     if filename.endswith(".py"):
         client.load_extension(f"cogs.{filename[:-3]}")
 
-
+@client.command()
+async def bruh(ctx):
+    await ctx.send("bruh")
+    time.sleep(5)
+    await message.edit(content="newcontent")
 
 
 @client.command(aliases=["hi", "hello"])
 async def e(ctx):
     responces = ["hi, how are you?", "yes, im here!", "hello!", ""]
+    
 
 
 
