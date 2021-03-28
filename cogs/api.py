@@ -199,6 +199,5 @@ class Example(commands.Cog):
 
 
 
-
 def setup(client):
     client.add_cog(Example(client))
