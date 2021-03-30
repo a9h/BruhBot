@@ -85,7 +85,7 @@ async def bruh(ctx):
 
 @client.command(aliases=["hi", "hello"])
 async def e(ctx):
-    responces = ["hi, how are you?", "yes, im here!", "hello!", ""]
+    responces = ["hi, how are you?", "yes, im here!", "hello!", "Hi!"]
     
 
 
@@ -206,40 +206,6 @@ async def help_animal(ctx):
 
 
     
-
-
-
-@client.command()
-async def waifurate(ctx):
-    number = random.randint(1, 100)
-    if 25 > number:
-        embed = discord.Embed()
-        embed.add_field(name="Waifu rate machine", value=f"You are {number}/100 waifu :nauseated_face:")
-        await ctx.send(embed=embed)
-    elif number > 25 and number < 50:
-        embed = discord.Embed()
-        embed.add_field(name="Waifu rate machine", value=f"You are {number}/100 waifu :confused:")
-        await ctx.send(embed=embed)
-    elif number > 50 and number < 75:
-        embed = discord.Embed()
-        embed.add_field(name="Waifu rate machine", value=f"You are {number}/100 waifu :relieved:")
-        await ctx.send(embed=embed)
-    elif number > 75:
-        embed = discord.Embed()
-        embed.add_field(name="Waifu rate machine", value=f"You are {number}/100 waifu :open_mouth:")
-        await ctx.send(embed=embed)
-
-
-
-@client.command()
-async def kill(ctx, member: discord.Member, ):
-    deaths = [f"{ctx.author.name} ripped off {member.mention}'s head", f"{member.mention} got hit by a train", f"{member.mention} fell off a cliff",
-              f"{ctx.author.name} sliced {member.mention} into 30 pieces", f"you tried to shoot {member.mention}, but it ricochet and exploded your head",
-              f"{member.mention} watched the emoji movie and died of cringe", f"{member.mention} got karate kicked in the head", f"{ctx.author.name} pulled out {member.mention}'s guts"
-              , f"{member.mention} died of death", f"{member.mention} choked on a toothbrush", f"{member.mention} got spiked by a cactus", f"{ctx.author.name} smited {member.mention} with lightning",
-              f"{ctx.author.name} shoved a crystal down {member.mention}'s throat", f"{member.mention}'s intestines got grinded up"]
-
-    await ctx.send(f"{random.choice(deaths)}")
 
 
 @client.command(aliases=["dox", "doxx"]) #THIS IS A JOKE FEATURE AND ONLY PROVIDES FAKE ADDRESSES
