@@ -69,6 +69,35 @@ class Fun(commands.Cog):
             embed.add_field(name="BruhBot Waifu Rater", value=f"You are {number}/100 waifu :open_mouth:")
             await ctx.send(embed=embed)
 
+    @commands.command(aliases=["hi", "hello"])
+    async def e(self, ctx):
+        responces = ["hi, how are you?", "yes, im here!", "hello!", "Hi!", "Im BruhBot, nice to meet you!", "Hey!"]
+
+        await ctx,send(f"{random.choice(responces)}")
+
+
+    
+
+
+    @commands.command()
+    async def insult(self, ctx):
+        insult_like = ["smells like", "looks like", ""]
+
+
+
+
+
+
+    @commands.command()
+    async def yomamma(self, ctx):
+        yomammaso = ["fat", "ugly", "old", "stupid"]
+        selection = random.choice(yomammaso)
+        if selection == "fat":
+            print("a")
+        elif selection == "ugly":
+            print("b")
+
+
 
 
     @commands.command()
