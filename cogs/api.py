@@ -91,12 +91,109 @@ class Example(commands.Cog):
         await ctx.send(url)
 
     @commands.command()
-    async def (self, ctx):
-        response = requests.get("")
+    async def dog(self, ctx):
+        response = requests.get("https://some-random-api.ml/img/dog")
         fact = response.json()
         url = (fact["link"])
-        embed=Discord.embed(title="Here is you")
+        embed = discord.Embed(title="Here is your dog picture!")
+        embed.set_image(url=url)
+        embed.set_footer(text="use >> before every command!")
+        await ctx.send(embed=embed)
+    
+    @commands.command()
+    async def cat(self, ctx):
+        response = requests.get("https://some-random-api.ml/img/cat")
+        fact = response.json()
+        url = (fact["link"])
+        embed = discord.Embed(title="Here is your cat picture!")
+        embed.set_image(url=url)
+        embed.set_footer(text="use >> before every command!")
+        await ctx.send(embed=embed)
 
+    @commands.command()
+    async def whale(self, ctx):
+        response = requests.get("https://some-random-api.ml/img/whale")
+        fact = response.json()
+        url = (fact["link"])
+        embed = discord.Embed(title="Here is your whale picture!")
+        embed.set_image(url=url)
+        embed.set_footer(text="use >> before every command!")
+        await ctx.send(embed=embed)
+
+    
+    @commands.command()
+    async def panda(self, ctx):
+        response = requests.get("https://some-random-api.ml/img/panda")
+        fact = response.json()
+        url = (fact["link"])
+        embed = discord.Embed(title="Here is your panda picture!")
+        embed.set_image(url=url)
+        embed.set_footer(text="use >> before every command!")
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    async def redpanda(self, ctx):
+        response = requests.get("https://some-random-api.ml/img/red_panda")
+        fact = response.json()
+        url = (fact["link"])
+        embed = discord.Embed(title="Here is your red panda picture!")
+        embed.set_image(url=url)
+        embed.set_footer(text="use >> before every command!")
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    async def kangaroo(self, ctx):
+        response = requests.get("https://some-random-api.ml/img/kangaroo")
+        fact = response.json()
+        url = (fact["link"])
+        embed = discord.Embed(title="Here is your kangaroo picture!")
+        embed.set_image(url=url)
+        embed.set_footer(text="use >> before every command!")
+        await ctx.send(embed=embed)
+
+
+    @commands.command()
+    async def racoon(self, ctx):
+        response = requests.get("https://some-random-api.ml/img/racoon")
+        fact = response.json()
+        url = (fact["link"])
+        embed = discord.Embed(title="Here is your racoon picture!")
+        embed.set_image(url=url)
+        embed.set_footer(text="use >> before every command!")
+        await ctx.send(embed=embed)
+
+
+    @commands.command()
+    async def bird(self, ctx):
+        response = requests.get("https://some-random-api.ml/img/birb")
+        fact = response.json()
+        url = (fact["link"])
+        embed = discord.Embed(title="Here is your bird picture!")
+        embed.set_image(url=url)
+        embed.set_footer(text="use >> before every command!")
+        await ctx.send(embed=embed)
+
+
+    @commands.command()
+    async def koala(self, ctx):
+        response = requests.get("https://some-random-api.ml/img/koala")
+        fact = response.json()
+        url = (fact["link"])
+        embed = discord.Embed(title="Here is your koala picture!")
+        embed.set_image(url=url)
+        embed.set_footer(text="use >> before every command!")
+        await ctx.send(embed=embed)
+
+
+    @commands.command()
+    async def fox(self, ctx):
+        response = requests.get("https://randomfox.ca/floof/")
+        fact = response.json()
+        url = (fact["image"])
+        embed = discord.Embed(title="Here is your fox picture!")
+        embed.set_image(url=url)
+        embed.set_footer(text="use >> before every command!")
+        await ctx.send(embed=embed)
 
 
 

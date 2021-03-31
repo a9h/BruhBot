@@ -5,7 +5,8 @@ import praw
 import requests 
 import os
 import json
-
+import time
+from pyfiglet import Figlet
 
 
 
@@ -75,10 +76,17 @@ for filename in os.listdir("./cogs"):
     if filename.endswith(".py"):
         client.load_extension(f"cogs.{filename[:-3]}")
 
+@client.command()
+async def bruh(ctx):
+    await ctx.send("bruh")
+    time.sleep(5)
+    await message.edit(content="newcontent")
 
 
-
-
+@client.command(aliases=["hi", "hello"])
+async def e(ctx):
+    responces = ["hi, how are you?", "yes, im here!", "hello!", "Hi!"]
+    
 
 
 
@@ -191,55 +199,13 @@ async def help_fun(ctx):
 @help.command(name="animals")
 async def help_animal(ctx):
     embed = discord.Embed(title="🐶Animal commands🐶")
-    embed.add_field(name="⠀", value="`catfact`, `dogfact`, `pandafact`, `foxfact`, `birdfact`, `koalafact`, `kangaroofact`, `racoonfact`, `elephantfact`, `giraffefact`, `whalefact`, `dog`, `cat`, `panda`, `redpanda`, `bird`, `fox`, `koala`")
+    embed.add_field(name="⠀", value="`catfact`, `dogfact`, `pandafact`, `foxfact`, `birdfact`, `koalafact`, `kangaroofact`, `racoonfact`, `elephantfact`, `giraffefact`, `whalefact`, `dog`, `cat`, `panda`, `redpanda`, `bird`, `fox`, `koala`, `kangaroo`, `racoon`, `whale`")
     embed.set_footer(text="use >> before every command!")
     await ctx.send(embed=embed)
 
 
-@client.command()
-async def dog(ctx):
-    response = requests.get("https://some-random-api.ml/facts/koala")
-    fact = response.json()
-    url = (fact["fact"])
-    await ctx.send(url)
 
-
-
-
-
-
-
-@client.command()
-async def waifurate(ctx):
-    number = random.randint(1, 100)
-    if 25 > number:
-        embed = discord.Embed()
-        embed.add_field(name="Waifu rate machine", value=f"You are {number}/100 waifu :nauseated_face:")
-        await ctx.send(embed=embed)
-    elif number > 25 and number < 50:
-        embed = discord.Embed()
-        embed.add_field(name="Waifu rate machine", value=f"You are {number}/100 waifu :confused:")
-        await ctx.send(embed=embed)
-    elif number > 50 and number < 75:
-        embed = discord.Embed()
-        embed.add_field(name="Waifu rate machine", value=f"You are {number}/100 waifu :relieved:")
-        await ctx.send(embed=embed)
-    elif number > 75:
-        embed = discord.Embed()
-        embed.add_field(name="Waifu rate machine", value=f"You are {number}/100 waifu :open_mouth:")
-        await ctx.send(embed=embed)
-
-
-
-@client.command()
-async def kill(ctx, member: discord.Member, ):
-    deaths = [f"{ctx.author.name} ripped off {member.mention}'s head", f"{member.mention} got hit by a train", f"{member.mention} fell off a cliff",
-              f"{ctx.author.name} sliced {member.mention} into 30 pieces", f"you tried to shoot {member.mention}, but it ricochet and exploded your head",
-              f"{member.mention} watched the emoji movie and died of cringe", f"{member.mention} got karate kicked in the head", f"{ctx.author.name} pulled out {member.mention}'s guts"
-              , f"{member.mention} died of death", f"{member.mention} choked on a toothbrush", f"{member.mention} got spiked by a cactus", f"{ctx.author.name} smited {member.mention} with lightning",
-              f"{ctx.author.name} shoved a crystal down {member.mention}'s throat", f"{member.mention}'s intestines got grinded up"]
-
-    await ctx.send(f"{random.choice(deaths)}")
+    
 
 
 @client.command(aliases=["dox", "doxx"]) #THIS IS A JOKE FEATURE AND ONLY PROVIDES FAKE ADDRESSES
@@ -323,24 +289,6 @@ async def get_bank_data():
 
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @client.command(aliases=["8ball", "eightball"])
 async def _8ball(ctx, *, question):
     responces = ["It is certain.",
@@ -398,4 +346,15 @@ async def author(ctx):
     await ctx.send(embed=embed)
 
 
-client.run("Nzk5MjY3NjE5MzY2NTAyNDcx.YABF-g.VsTXoKeHRFJiHXRIWew9HjSeD7w")
+
+tokenopen = open("token.json", "r")
+data = json.loads(tokenopen.read())
+token = (data["token"])
+
+
+
+
+
+
+
+client.run(token)
