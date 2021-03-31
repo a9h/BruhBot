@@ -208,20 +208,7 @@ async def help_animal(ctx):
     
 
 
-@client.command(aliases=["dox", "doxx"]) #THIS IS A JOKE FEATURE AND ONLY PROVIDES FAKE ADDRESSES
-async def autodox(ctx, member: discord.Member):
-    s = open("address.txt", "r")
-    m = s.readlines()
-    l = []
-    for i in range(0, len(m) - 1):
-        x = m[i]
-        z = len(x)
-        a = x[:z - 1]
-        l.append(a)
-    l.append(m[i + 1])
-    o = random.choice(l)
-    await ctx.send(f"{member.mention} lives at " + (o))
-    s.close()
+
 
 
 
