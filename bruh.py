@@ -83,7 +83,6 @@ async def bruh(ctx):
     await message.edit(content="newcontent")
 
 
-@client.command(aliases=["hi", "hello"])
 
     
 
