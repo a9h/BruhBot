@@ -84,26 +84,10 @@ async def bruh(ctx):
 
 
 @client.command(aliases=["hi", "hello"])
-async def e(ctx):
-    responces = ["hi, how are you?", "yes, im here!", "hello!", "Hi!"]
+
     
 
 
-
-
-@client.command()
-@commands.has_permissions(manage_messages=True)
-async def mute(ctx,member: discord.Member, *, reason=None):
-    guild = ctx.guild
-    mutedrole = discord.utils.get(guild.roles, name="muted1582")
-
-    if not mutedrole:
-        mutedrole = await guild.create_role(name="muted1582")
-        for channel in guild.channels:
-            await channel.set_permissions(mutedrole, speak=False, send_messages=False, read_message_history=True, read_messages=True)
-    await member.add_roles(mutedrole, reason=reason)
-    await ctx.send (f"Muted {member.mention} for {reason}")
-    await member.send(f"You were muted in the server {guild.name} for {reason}")
 
 @client.command()
 @commands.has_permissions(manage_messages=True)
