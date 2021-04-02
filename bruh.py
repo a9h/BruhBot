@@ -258,6 +258,21 @@ async def get_bank_data():
 
 
 
+
+@client.command()
+async def memory(ctx):
+    words = ["memory"]
+    await ctx.send(f"the word is")
+    message = await ctx.send(f"{random.choice(words)}")
+    msg = await channel.fetch_message (message))
+    time.sleep(5)
+    await (msg).delete()
+
+    
+    
+
+
+
     
 @client.command(aliases=["8ball", "eightball"])
 async def _8ball(ctx, *, question):
