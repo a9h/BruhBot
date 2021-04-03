@@ -17,6 +17,17 @@ class Fun(commands.Cog):
             await ctx.send("BEEP BEEP BEEP")
             time.sleep(1)
             await ctx.send(f"Your {str(item)} is ready!")
+  
+  
+  
+  
+  
+    @client.command()
+    async def ping(self, ctx):
+        await ctx.send(f"pong! {round(client.latency * 1000)}ms")
+
+
+
 
 
     @commands.command()
@@ -111,6 +122,43 @@ class Fun(commands.Cog):
         await ctx.send(f"{random.choice(deaths)}")
 
 
+    @commands.command(aliases=["8ball", "eightball"])
+    async def _8ball(self, ctx, *, question):
+        responces = ["It is certain.",
+    "It is decidedly so.",
+    "Without a doubt.",
+    "Yes - definitely.",
+    "You may rely on it.",
+    "As I see it, yes.",
+    "Most likely.",
+    "Outlook good.",
+    "Yes.",
+    "Signs point to yes.",
+    "Reply hazy, try again.",
+    "Ask again later.",
+    "Better not tell you now.",
+    "Cannot predict now.",
+    "Concentrate and ask again.",
+    "Don't count on it.",
+    "My reply is no.",
+    "My sources say no.",
+    "Outlook not so good.",
+    "Very doubtful."]
+
+        await ctx.send(f"```question: {question}\nAnswer: {random.choice(responces)}```")
+
+
+
+
+
+
+    @commands.command(aliases=["McName", "3Letter", "3char", "3name"])
+    async def _3letterword(self, ctx):
+        letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+               "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
+               "y", "z" "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+
+        await ctx.send(f"```your 3 letter name is: {random.choice(letters)}{random.choice(letters)}{random.choice(letters)}```")
 
 
 
