@@ -30,7 +30,7 @@ class Help(commands.Cog):
     @help.command(name="fun")
     async def help_fun(self,ctx):
         embed = discord.Embed(title=":smile: Fun Commands :smile:")
-        embed.add_field(name="⠀", value="`Kill`, `Dox`, `waifurate`, `epicgamer`, `8ball`, `3name`, `highlow`, `microwave`", inline=True)
+        embed.add_field(name="⠀", value="`Kill`, `Dox`, `waifurate`, `epicgamer`, `8ball`, `3name`, `highlow`, `microwave`, `repeat`, `gaytest`", inline=True)
         #If you are reading this then hello
         embed.set_footer(text="use >> before every command!")
         await ctx.send(embed=embed)

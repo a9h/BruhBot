@@ -148,7 +148,9 @@ class Fun(commands.Cog):
         await ctx.send(f"```question: {question}\nAnswer: {random.choice(responces)}```")
 
 
-
+        @commands.command()
+        async def repeat(self, ctx,* sentence)
+        await ctx.send(f"{sentence}\n\n*{ctx.author.name}")
 
 
 
