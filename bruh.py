@@ -67,7 +67,7 @@ async def on_command_error(ctx, error):
         embed=discord.Embed()
         embed.add_field(name=(f"{random.choice(slowdown)}"), value=(message), inline=False)
         await ctx.send(embed=embed)
-        
+    
 
 
 @client.command()

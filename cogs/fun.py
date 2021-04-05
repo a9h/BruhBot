@@ -22,7 +22,7 @@ class Fun(commands.Cog):
   
   
   
-    @client.command()
+    @commands.command()
     async def ping(self, ctx):
         await ctx.send(f"pong! {round(client.latency * 1000)}ms")
 
@@ -148,9 +148,9 @@ class Fun(commands.Cog):
         await ctx.send(f"```question: {question}\nAnswer: {random.choice(responces)}```")
 
 
-        @commands.command()
-        async def repeat(self, ctx,* sentence)
-        await ctx.send(f"{sentence}\n\n*{ctx.author.name}")
+    @commands.command()
+    async def repeat(self, ctx, *, sentence):           
+        await ctx.send(f"{sentence}\n\n**-{ctx.author}**")
 
 
 
