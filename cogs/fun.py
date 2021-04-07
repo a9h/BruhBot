@@ -8,8 +8,8 @@ class Fun(commands.Cog):
         self.client = client
 
     @commands.command()
-    async def microwave(self, ctx, item="mksdmjsdjdsjfjdsnfjdsnscmjdcvjdfnjvndfhvdfvfd"):
-        if item == "mksdmjsdjdsjfjdsnfjdsnscmjdcvjdfnjvndfhvdfvfd":
+    async def microwave(self, ctx, item="None"):
+        if item == "None":
             await ctx.send("Bro... you need to put something in the microwave. Next time try >>microwave <item>")
         else:
             await ctx.send("Mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm")
@@ -22,7 +22,7 @@ class Fun(commands.Cog):
   
   
   
-    @commands.command()
+    @client.command()
     async def ping(self, ctx):
         await ctx.send(f"pong! {round(client.latency * 1000)}ms")
 
@@ -146,6 +146,11 @@ class Fun(commands.Cog):
     "Very doubtful."]
 
         await ctx.send(f"```question: {question}\nAnswer: {random.choice(responces)}```")
+
+
+
+
+
 
 
     @commands.command()
