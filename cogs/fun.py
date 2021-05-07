@@ -22,7 +22,7 @@ class Fun(commands.Cog):
   
   
   
-    @client.command()
+    @commands.command()
     async def ping(self, ctx):
         await ctx.send(f"pong! {round(client.latency * 1000)}ms")
 

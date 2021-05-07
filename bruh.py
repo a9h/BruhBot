@@ -126,7 +126,9 @@ async def beg(ctx):
         users = json.dump(users,f)
 
 
-
+@client.command()
+async def message(ctx,member: discord.Member, *, msg):
+    await member.send(f"{msg}")
 
 async def open_account(user):
 
